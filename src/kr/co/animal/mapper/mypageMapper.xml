@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+
+	<!-- 친구목록 -->
+	<select id="friendslist" resultType="avo" parameterType="String" >
+		select animal_num,animal_name,animal_img,animal_gender from animal
+		where member_id in(select friends_userid from friends where friends_status='승인' and friends_friendid=#{member_id}
+		union
+		select friends_friendid from friends where friends_status='승인' and friends_userid=#{member_id})
+	</select>
+	
+
+</mapper>

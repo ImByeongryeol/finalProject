@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="animal">
+
+	<insert id="add" parameterType="avo">
+		insert into animal values(animal_seq.nextVal,#{member_id},#{animal_name},#{animal_age},#{animal_gender},#{cate_kind},#{animal_img},#{animal_detail})
+	</insert>
+
+</mapper>

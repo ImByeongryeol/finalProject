@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="community">
+	<!-- 목록 -->
+	<select id="totalCount" resultType="int">
+		select count(*) from animal
+	</select>
+	
+	<!-- 커뮤니티 리스트 -->
+	<select id="list" resultType="avo" parameterType="avo">
+		select * from (
+    		select rownum a_num, a.* from (
+        		select * from animal where member_id not in #{member_id} order by animal_num asc
+    		) a
+		) where a_num between #{begin} and #{end}
+	</select>
+	
+	<!-- 상세 -->
+	<select id="detail" resultType="avo" parameterType="int" >
+		select * from animal where animal_num = #{animal_num}
+	</select>
+	
+	<!-- 친구인지 확인 -->
+	<select id="checkfriends" resultType="int"  parameterType="fvo">
+		select count(*) from friends where friends_status='승인' and friends_userid=#{friends_userid} and friends_friendid=#{friends_friendid}
+	</select>
+	
+	<!-- 친구추가 -->
+	<insert id="addfriends" parameterType="fvo">
+		insert into friends values(#{friends_userid},#{friends_status},#{friends_friendid})
+	</insert>
+	
+	<!-- 친구상태확인 -->
+	<select id="statfriends" resultType="int" parameterType="fvo" >
+		select count(*) from friends where friends_userid=#{friends_userid} and friends_friendid=#{friends_friendid}
+	</select>
+	
+	<!-- 추천 친구 -->
+	<select id="recommend" resultType="avo" parameterType="String" >
+		select animal_num,animal_img,animal_name,member_id from (
+    		select rownum a_num,a.animal_num,a.animal_img,a.animal_name,a.member_id from (
+        		select animal_num, animal_name, animal_img, member_id from animal 
+                where member_id in(
+                select member_id from member where member_addr = (
+                select member_addr from member
+                where member_id=#{member_id}) 
+                and member_id not in (select friends_userid from friends where friends_status='승인' and friends_friendid=#{member_id}
+				union
+				select friends_friendid from friends where friends_status='승인' and friends_userid=#{member_id}))
+                and cate_species= (select cate_species from animal where member_id=#{member_id})
+    		) a
+		) where a_num between 1 and 8
+	</select>
+
+</mapper> 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="kr.co.animal.vo.MemberVO" alias="mvo"/> <!-- 회원 -->
+		<typeAlias type="kr.co.animal.vo.AnimalVO" alias="avo"/> <!-- 동물 -->
+		<typeAlias type="kr.co.animal.vo.CateVO" alias="cvo" /> <!-- 카테고리 -->
+		<typeAlias type="kr.co.animal.vo.FriendsVO" alias="fvo" /> <!-- 친구 -->
+	</typeAliases>
+</configuration>

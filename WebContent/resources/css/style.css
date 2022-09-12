@@ -1,0 +1,46 @@
+@charset "EUC-KR";
+
+/* 초기화 */
+* {padding:0; margin:0;}
+a {color:#282828; text-decoration:none; outline:none;}
+a:hover, a:active {text-decoration:none; color:#282828;}
+ul, li {padding:0; margin:0; list-style:none;}
+
+/* 폰트 지정 */
+* {font-family:'Jua', sans-serif;}
+
+/* 헤더 */
+header .banner {background:#282828; height:50px; line-height:50px; text-align:center; color:#fff; font-size:18px;}
+header h1 {text-align:center; margin:70px 0 60px;}
+header h1 a {color:#282828; font-size:70px;}
+header nav {background:#f7f7f7; padding:16px 0 12px;}
+header nav .container {position:relative;}
+
+header nav .search {position:absolute; left:0; top:0;}
+header nav .search input {border:0; height:30px; text-indent:10px;}
+header nav .search input[type=submit] {background:url(/final_project_Bteam/resources/image/search_icon.png)no-repeat; font-size:0; width:17px;}
+
+header nav ul li {display:inline-block;}
+
+header nav ul.navi {text-align:center;}
+header nav ul.navi li {margin:0 40px;}
+header nav ul.navi li a {font-size:24px;}
+
+header nav ul.member {position:absolute; right:0; top:5px;}
+header nav ul.member li {margin:0 10px;}
+header nav ul.member li a {font-size:18px;}
+
+/* 공통으로 사용될 content */
+.content {min-height:500px; padding:50px 0;}
+
+/* 푸터 */
+footer {background:#f7f7f7; text-align:center; padding:20px 0;}
+footer p {margin:0;}
+
+/* paging */
+.paging {list-style:none; text-align:center; padding:0; margin:10px 0;}
+.paging li {display:inline-block;}
+.paging li.disable {padding:3px 10px; border:1px solid silver; color:silver;}
+.paging li.now {padding:3px 10px; border:1px solid #000; background:#000; color:white; font-weight:bold;}
+.paging li a {display:block; padding:3px 10px; border:1px solid #000; color:#000; font-weight:bold;}
+.paging li a:hover {background:#000; color:#fff; font-weight:bold;}
