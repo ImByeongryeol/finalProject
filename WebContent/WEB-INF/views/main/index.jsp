@@ -41,8 +41,14 @@
 				</button>
 			</div>
 		</section>
-		
+		<div>Hi!</div>
 		<section class="container content">
-			하하
-			호호
+			<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+			<df-messenger
+			  chat-icon="https:&#x2F;&#x2F;localhost&#x2F;final_project_Bteam&#x2F;main&#x2F;"
+			  intent="WELCOME"
+			  chat-title="AI_Gang_Go"
+			  agent-id="fb4ac6b1-6c82-44d6-9c81-e8131e9fdecc"
+			  language-code="ko"
+			></df-messenger>
 		</section>
