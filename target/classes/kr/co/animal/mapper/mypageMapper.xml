@@ -4,7 +4,7 @@
 
 	<!-- 친구목록 -->
 	<select id="friendslist" resultType="avo" parameterType="String" >
-		select animal_num,animal_name,animal_img,animal_gender from animal
+		select animal_num,animal_name,animal_img,animal_gender,cate_kind from animal
 		where member_id in(select friends_userid from friends where friends_status='승인' and friends_friendid=#{member_id}
 		union
 		select friends_friendid from friends where friends_status='승인' and friends_userid=#{member_id})

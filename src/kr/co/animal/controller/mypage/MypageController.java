@@ -22,6 +22,7 @@ public class MypageController {
 	@RequestMapping(value = "/friendslist")
 	public String friendsList(Model m, HttpSession session) {
 		String member_id = (String) session.getAttribute("sessionID");
+		System.out.println(member_id);
 		List<AnimalVO> friendslist = mypageDaoInter.friendsList(member_id);
 		m.addAttribute("friendslist", friendslist);
 		return "mypage/friendslist";
